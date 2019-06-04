@@ -1,0 +1,146 @@
+
+Name: Quynh Dinh
+ID: 991486726
+
+PSEUDO CODE
+
+BEGIN	
+	INIT message as a character array (string)
+	INIT key as a character array (string)
+	INIT counter TO 0
+	INIT time counter TO 0
+	INIT isAlphaMessage as an integer contains 0 (false) or 1 (true)
+	INIT isAlphaKey as an integer contains 0 (false) or 1 (true)
+	
+	MAIN
+		REPEAT
+			PRINT request for input
+				"Enter a message and keyword (letter values only): "
+			<User input message and key>
+			GET message
+			GET key
+		
+			FOR counter = 0 TO length of message
+				IF character at counter index of message is not alpha THEN
+					SET isAlphaMessage TO 0
+					PRINT "You have entered non-alpha character(s) in message!"
+					EXIT LOOP
+				ELSE
+					SET isAlphaMessage TO 1
+				END IF
+			END FOR
+		
+			FOR counter = 0 TO length of key
+				IF character at counter index of key is not alpha THEN
+					SET isAlphaKey TO 0
+					PRINT "You have entered non-alpha character(s) in keyword!"
+					EXIT LOOP
+				ELSE
+					SET isAlphaKey TO 1
+				END IF
+			END FOR
+			
+			IF time counter is greater than 0 AND (isAlphaMessage equals 0 OR isAlphaKey equals 0) THEN
+				EXIT PROGRAM
+			END IF
+		UNTIL isAlphaMessage equals 0 OR isAlphaKey equals 0
+
+		FOR counter = 0 TO length of message
+			Set character at counter index of message TO lowercase
+		END FOR
+
+		FOR counter = 0 TO length of key
+			Set character at counter index of key TO lowercase
+		END FOR
+
+		CALL FUNCTION encipher(arguments: message, key)
+	END MAIN
+	
+	FUNCTION encipher(parameters: message, key)
+		PASS IN: message as message, key as key
+		PRINT "***** Encipher *****"
+		PRINT "Message: " + message
+		PRINT "Key: " + key
+		
+		INIT counter TO 0
+		INIT secondCounter TO 0
+		
+		INIT newKey as a new string having length equals length of message
+		
+		FOR counter = 0 TO length of message
+			IF counter equals length of key
+				SET secondCounter TO 0
+			END IF
+			
+			SET character at counter index of newKey TO character at secondCounter index of key
+			
+			INCREMENT secondCounter
+		END FOR
+		SET the last character of newKey TO nul character
+		
+		INIT shifting as a list of integers having length equals length of newKey
+		
+		FOR counter = 0 TO length of newKey
+			COMPUTE integer at counter index of shifting 
+				AS difference of character at counter index of newKey AND character 'a'
+		END FOR
+		
+		FOR counter = 0 TO length of message
+			INIT represent
+			COMPUTE represent AS difference of character at counter index of message AND character 'a'
+			INIT intChar
+			CALCULATE intChar = (represent + integer at counter index of shifting) % 26
+			SET character at counter index of message TO intChar + character 'a'
+		END FOR
+		
+		PRINT "Encrypted Message: " + message
+		
+		CALL FUNCTION decipher(arguments: message, key)
+	END FUNCTION
+		
+	FUNCTION decipher(parameters: encrypted, key)
+		PASS IN: message as encrypted, key as key
+		
+		PRINT "***** Decipher *****"
+		PRINT "Encrypted Message:" + encrypted
+		PRINT "Key: " + key
+		
+		INIT counter TO 0
+		INIT secondCounter TO 0
+		
+		INIT newKey as a new string having length equals length of encrypted
+		
+		FOR counter = 0 TO length of encrypted
+			IF counter equals length of key
+				SET secondCounter TO 0
+			END IF
+			
+			SET character at counter index of newKey TO character at secondCounter index of key
+			
+			INCREMENT secondCounter
+		END FOR
+		SET the last character of newKey TO nul character
+		
+		INIT shifting as a list of integers having length equals length of newKey
+		
+		FOR counter = 0 TO length of newKey
+			COMPUTE integer at counter index of shifting 
+				AS difference of character at counter index of newKey AND character 'a'
+		END FOR
+		
+		FOR counter = 0 TO length of encrypted
+			INIT represent
+			COMPUTE represent AS difference of character at counter index of encrypted AND character 'a'
+			INIT intChar
+			CALCULATE intChar = (represent + integer at counter index of shifting) % 26
+			
+			IF intChar is less than 0 THEN
+				COMPUTE intChar = intChar + 26
+			END IF
+			
+			SET character at counter index of encrypted TO intChar + character 'a'
+		END FOR
+		
+		PRINT "Encrypted Message: " + encrypted
+	END FUNCTION
+END

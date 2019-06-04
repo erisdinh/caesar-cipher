@@ -1,0 +1,62 @@
+Name: Quynh Dinh
+ID: 991486726
+
+TEST CASES
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Case					| m input		| k input		|	Expected result												| 	Actual result												| 		P/S				|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User input validation	|				|				|																|																|						|
+						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Test1:					|				|				|																|																|						|
+Input1:					| algori123		| sheridan		| Display error in message 										| You have entered non-alpha character(s) in message!			|						|
+						|				|				| and ask user to input message and key again					| Enter a message and keyword (letter values only):				|						|
+						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Input2:					| algorithms	| sheri123		| Display error in keyword and exit program						| You have entered non-alpha character(s) in keyword!			|						|
+						|				|				|																| Exit program!													|						|
+		---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Test2:					|				|				|																| 																|						|
+Input1:					| algori???		| sheri123		| Display errors in both message and key						| You have entered non-alpha character(s) in message!			|						|
+						|				|				| and ask user to input message and key again					| You have entered non-alpha character(s) in keyword!			|						|
+						|				|				|																| Enter a message and keyword (letter values only):				|						|
+						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Input2:					| algori123		| sheri$%^		| Display errors in both message and key						| You have entered non-alpha character(s) in message!			|						|
+						|				|				| and exit program												| You have entered non-alpha character(s) in keyword!			|						|
+						|				|				|																| Exit program!													|						|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User input validation 	|				|				|																|																|						|
+and example				|				|				|																| 																|						|
+Input1:					| hello123		| world)_+		| Display errors in both message and key						| You have entered non-alpha character(s) in message!			|						|
+						|				|				| and ask user to input message and key again					| You have entered non-alpha character(s) in keyword!			|						|
+						|				|				|																| Enter a message and keyword (letter values only):				|						|
+						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Input2: example			| algorithms	| sheridan		| ***** Encipher *****											| ***** Encipher *****											|						|
+len(message)>len(key)	|				|				| Message: algorithms											| Message: algorithms											|						|
+						|				|				| Key: sheridan													| Key: sheridan													|						|
+						|				|				| Encrypted Message: sskfzltuez									| Encrypted Message: sskfzltuez									|						|																
+						|				|				|																|																|						|
+						|				|				| ***** Decipher *****											| ***** Decipher *****											|						|
+						|				|				| Encrypted Message: sskfzltuez									| Encrypted Message: sskfzltuez									|						|
+						|				|				| Key: sheridan													| Key: sheridan													|						|	
+						|				|				| Message: algorithms											| Message: algorithms											|						|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Camel case and			| HelloWorld	| WelcomeTwo	| ***** Encipher *****											| ***** Encipher *****											|						|
+len(message)=len(key)	|				|				| Message: helloworld											| Message: helloworld											|						|
+						|				|				| Key: welcometwo												| Key: welcometwo												|						|
+						|				|				| Encrypted Message: diwnciskhr									| Encrypted Message: diwnciskhr									|						|																
+						|				|				|																|																|						|
+						|				|				| ***** Decipher *****											| ***** Decipher *****											|						|
+						|				|				| Encrypted Message: diwnciskhr									| Encrypted Message: diwnciskhr									|						|
+						|				|				| Key: welcometwo												| Key: welcometwo												|						|	
+						|				|				| Message: helloworld											| Message: helloworld											|						|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Uppercase and			| CODE			| PROGRAMMING	| ***** Encipher *****											| ***** Encipher *****											|						|
+len(message)<len(key)	|				|				| Message: code													| Message: code													|						|
+						|				|				| Key: programming												| Key: programming												|						|
+						|				|				| Encrypted Message: rfrk										| Encrypted Message: rfrk										|						|																
+						|				|				|																|																|						|
+						|				|				| ***** Decipher *****											| ***** Decipher *****											|						|
+						|				|				| Encrypted Message: rfrk										| Encrypted Message: rfrk										|						|
+						|				|				| Key: programming												| Key: programming												|						|	
+						|				|				| Message: code													| Message: code													|						|
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
