@@ -4,33 +4,33 @@ ID: 991486726
 TEST CASES
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Case					| m input		| k input		|	Expected result												| 	Actual result												| 		P/S				|
+Case					| m input		| k input		|	Expected result												| 	Actual result												| 		P/F				|
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-User input validation	|				|				|																|																|						|
+User input validation	|				|				|																|																|		Pass			|
 						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Test1:					|				|				|																|																|						|
-Input1:					| algori123		| sheridan		| Display error in message 										| You have entered non-alpha character(s) in message!			|						|
+Input1:					| algori123		| sheridan		| Inform user that non-valid input in message					| You have entered non-alpha character(s) in message!			|		Pass			|
 						|				|				| and ask user to input message and key again					| Enter a message and keyword (letter values only):				|						|
 						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Input2:					| algorithms	| sheri123		| Display error in keyword and exit program						| You have entered non-alpha character(s) in keyword!			|						|
-						|				|				|																| Exit program!													|						|
+Input2:					| algorithms	| sheri123		| Inform user that non-valid input in key						| You have entered non-alpha character(s) in keyword!			|		Pass			|
+						|				|				| and exit program												| Exit program!													|						|
 		---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Test2:					|				|				|																| 																|						|
-Input1:					| algori???		| sheri123		| Display errors in both message and key						| You have entered non-alpha character(s) in message!			|						|
+Input1:					| algori???		| sheri123		| Inform user that non-valid input in message and key			| You have entered non-alpha character(s) in message!			|		Pass			|
 						|				|				| and ask user to input message and key again					| You have entered non-alpha character(s) in keyword!			|						|
 						|				|				|																| Enter a message and keyword (letter values only):				|						|
 						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Input2:					| algori123		| sheri$%^		| Display errors in both message and key						| You have entered non-alpha character(s) in message!			|						|
+Input2:					| algori123		| sheri$%^		| Inform user that non-valid input in message and key			| You have entered non-alpha character(s) in message!			|		Pass			|
 						|				|				| and exit program												| You have entered non-alpha character(s) in keyword!			|						|
 						|				|				|																| Exit program!													|						|
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 User input validation 	|				|				|																|																|						|
 and example				|				|				|																| 																|						|
-Input1:					| hello123		| world)_+		| Display errors in both message and key						| You have entered non-alpha character(s) in message!			|						|
+Input1:					| hello123		| world)_+		| Inform user that non-valid input in message and key			| You have entered non-alpha character(s) in message!			|		Pass			|
 						|				|				| and ask user to input message and key again					| You have entered non-alpha character(s) in keyword!			|						|
 						|				|				|																| Enter a message and keyword (letter values only):				|						|
 						-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Input2: example			| algorithms	| sheridan		| ***** Encipher *****											| ***** Encipher *****											|						|
+Input2: example			| algorithms	| sheridan		| ***** Encipher *****											| ***** Encipher *****											|		Pass			|
 len(message)>len(key)	|				|				| Message: algorithms											| Message: algorithms											|						|
 						|				|				| Key: sheridan													| Key: sheridan													|						|
 						|				|				| Encrypted Message: sskfzltuez									| Encrypted Message: sskfzltuez									|						|																
@@ -40,7 +40,7 @@ len(message)>len(key)	|				|				| Message: algorithms											| Message: algor
 						|				|				| Key: sheridan													| Key: sheridan													|						|	
 						|				|				| Message: algorithms											| Message: algorithms											|						|
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Camel case and			| HelloWorld	| WelcomeTwo	| ***** Encipher *****											| ***** Encipher *****											|						|
+Camel case and			| HelloWorld	| WelcomeTwo	| ***** Encipher *****											| ***** Encipher *****											|		Pass			|
 len(message)=len(key)	|				|				| Message: helloworld											| Message: helloworld											|						|
 						|				|				| Key: welcometwo												| Key: welcometwo												|						|
 						|				|				| Encrypted Message: diwnciskhr									| Encrypted Message: diwnciskhr									|						|																
@@ -50,7 +50,7 @@ len(message)=len(key)	|				|				| Message: helloworld											| Message: hello
 						|				|				| Key: welcometwo												| Key: welcometwo												|						|	
 						|				|				| Message: helloworld											| Message: helloworld											|						|
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Uppercase and			| CODE			| PROGRAMMING	| ***** Encipher *****											| ***** Encipher *****											|						|
+Uppercase and			| CODE			| PROGRAMMING	| ***** Encipher *****											| ***** Encipher *****											|		Pass			|
 len(message)<len(key)	|				|				| Message: code													| Message: code													|						|
 						|				|				| Key: programming												| Key: programming												|						|
 						|				|				| Encrypted Message: rfrk										| Encrypted Message: rfrk										|						|																

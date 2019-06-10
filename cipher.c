@@ -169,10 +169,7 @@ void decipher(char encrypted[], char key[]){
 	/* Decrypt the message based on the formula */
 	for(i = 0; i < strlen(encrypted); i++){
 		int represent = encrypted[i] - 'a';
-		int intChar = (represent - shifting[i]) % 26;
-		if(intChar < 0) {
-			intChar += 26;
-		}
+		int intChar = (represent - shifting[i] + 26) % 26;
 		encrypted[i] = intChar + 'a';
 	}
 	

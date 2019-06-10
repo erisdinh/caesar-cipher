@@ -132,12 +132,7 @@ BEGIN
 			INIT represent
 			COMPUTE represent AS difference of character at counter index of encrypted AND character 'a'
 			INIT intChar
-			CALCULATE intChar = (represent + integer at counter index of shifting) % 26
-			
-			IF intChar is less than 0 THEN
-				COMPUTE intChar = intChar + 26
-			END IF
-			
+			CALCULATE intChar = (represent + integer at counter index of shifting + 26) % 26
 			SET character at counter index of encrypted TO intChar + character 'a'
 		END FOR
 		
